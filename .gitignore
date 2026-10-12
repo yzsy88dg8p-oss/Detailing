@@ -1,0 +1,5 @@
+# Версия для предпросмотра в Claude — собирается командой python3 build.py --preview
+/preview/
+__pycache__/
+.DS_Store
+node_modules/

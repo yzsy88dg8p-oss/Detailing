@@ -1,0 +1,49 @@
+<header class="site-header" data-header>
+  <div class="container header__inner">
+    <a class="logo" href="{{ href_index }}" aria-label="{{ brand }}: на главную">
+      {{ logo_html }}
+      <span class="logo__text">
+        <span class="logo__name">Zero KM <span>Detailing</span></span>
+        <span class="logo__desc">{{ descriptor }}</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Основное меню">
+      <ul class="nav__list">{{ nav_html }}</ul>
+    </nav>
+    <div class="header__actions">
+      <a class="header__phone" href="{{ tel_url }}" data-goal="click_phone">{{ contacts.phone_display }}</a>
+      <a class="btn btn--primary btn--sm header__cta" href="{{ href_contacts }}#form">Записаться</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="mmenu" data-menu-open>
+        <span class="sr-only">Открыть меню</span>
+        <span class="burger__lines" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mmenu" id="mmenu" role="dialog" aria-modal="true" aria-label="Меню" hidden data-menu>
+  <div class="mmenu__top container">
+    <a class="logo" href="{{ href_index }}" aria-label="{{ brand }}: на главную">
+      {{ logo_html }}
+      <span class="logo__text">
+        <span class="logo__name">Zero KM <span>Detailing</span></span>
+        <span class="logo__desc">{{ descriptor }}</span>
+      </span>
+    </a>
+    <button class="mmenu__close" type="button" data-menu-close>
+      <span class="sr-only">Закрыть меню</span>{{ i.x }}
+    </button>
+  </div>
+  <nav class="mmenu__nav container" aria-label="Меню разделов">
+    <ul>{{ mnav_html }}</ul>
+  </nav>
+  <div class="mmenu__bottom container">
+    <a class="btn btn--primary btn--block" href="{{ href_contacts }}#form" data-menu-close>Записаться{{ i.arrow_right }}</a>
+    <div class="mmenu__contacts">
+      <a href="{{ tel_url }}" data-goal="click_phone">{{ i.phone }}<span>Позвонить</span></a>
+      <a href="{{ tg_url }}" target="_blank" rel="noopener" data-goal="click_tg">{{ i.tg }}<span>Telegram</span></a>
+      <a href="{{ wa_url }}" target="_blank" rel="noopener" data-goal="click_wa">{{ i.wa }}<span>WhatsApp</span></a>
+    </div>
+    <p class="mmenu__note"><a href="{{ tel_url }}" data-goal="click_phone">{{ contacts.phone_display }}</a><br>{{ contacts.hours }} · {{ contacts.hours_note }}</p>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+{
+  "_readme": "Главные настройки сайта. Поменяйте значения и запустите: python3 build.py. Подробно — в README.md.",
+
+  "site_url": "https://yzsy88dg8p-oss.github.io/Detailing",
+  "brand": "Zero KM Detailing",
+  "descriptor": "Химчистка и детейлинг салона на выезд, СПб и ЛО",
+  "slogan": "0 км до сервиса. 0 км пробега салона.",
+
+  "contacts": {
+    "phone_display": "+7 (000) 000-00-00",
+    "phone_tel": "+70000000000",
+    "telegram_username": "zerokm_detailing",
+    "whatsapp_number": "70000000000",
+    "email": "",
+    "hours": "Ежедневно, 9:00–21:00",
+    "hours_note": "по предварительной записи"
+  },
+
+  "prices": {
+    "complex": 6500,
+    "leather": 2500,
+    "ceiling": 1500,
+    "odor": 1000,
+    "spot": 1000,
+    "min_order": 6000
+  },
+
+  "links": {
+    "yandex_maps": "",
+    "two_gis": "",
+    "avito": "",
+    "vk": "",
+    "telegram_channel": ""
+  },
+
+  "form_endpoint": "",
+  "yandex_metrika_id": "",
+
+  "legal": {
+    "operator_name": "",
+    "inn": "",
+    "status": "самозанятый (плательщик налога на профессиональный доход)",
+    "email": ""
+  },
+
+  "founded_year": 2026
+}

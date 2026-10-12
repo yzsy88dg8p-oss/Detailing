@@ -1,0 +1,260 @@
+<!--meta {
+  "title": "Услуги и цены на химчистку салона на выезд — Zero KM Detailing, СПб и ЛО",
+  "description": "Комплексная химчистка салона на выезд от 6 500 ₽, чистка кожи, потолка, нейтрализация запаха. Калькулятор стоимости. Детейлинг салона в СПб и ЛО.",
+  "nav": "services",
+  "crumb": "Услуги и цены",
+  "cta": {
+    "eyebrow": "Точная цена",
+    "title": "Пришлите марку авто и пару фото салона",
+    "text": "Назовём точную стоимость и время работы до приезда и честно скажем, что может не отмыться.",
+    "button": "Записаться",
+    "href": "contacts.html#form"
+  }
+} -->
+
+<section class="page-hero theme-deep grain" aria-labelledby="page-title">
+  <div class="page-hero__ring" aria-hidden="true"></div>
+  <div class="container page-hero__grid">
+    <div class="page-hero__copy">
+      <ol class="crumbs"><li><a href="{{ href_index }}">Главная</a></li><li><span aria-current="page">Услуги и цены</span></li></ol>
+      <h1 class="h1" id="page-title">Услуги и цены</h1>
+      <p class="lead">Химчистка и детейлинг салона на выезд. Работаем только с салоном: ткань, ковролин, пластик, кожа, стёкла изнутри.</p>
+      <div class="page-hero__actions">
+        <a class="btn btn--primary btn--lg" href="#calc">Рассчитать{{ i.arrow_right }}</a>
+        <a class="btn btn--ghost btn--lg" href="{{ href_contacts }}#form">Записаться</a>
+      </div>
+    </div>
+    <div class="page-hero__stat">
+      <b class="num">от {{ p.complex }}<small> ₽</small></b>
+      <span>комплексная химчистка салона, выезд по СПб включён</span>
+    </div>
+  </div>
+</section>
+
+<section class="section theme-light" aria-labelledby="pkg-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div class="stack">
+        <p class="eyebrow">Основная услуга</p>
+        <h2 class="h2" id="pkg-title">Комплексная химчистка салона</h2>
+      </div>
+      <p class="lead">Всё, что нужно салону после сезона, детей, собаки или просто долгой жизни без чистки.</p>
+    </div>
+    <article class="package">
+      <div class="package__main">
+        <div class="stack">
+          <span class="package__label">Пакет</span>
+          <h3 class="package__title">Комплексная химчистка</h3>
+        </div>
+        <p class="package__price"><small>от</small><b>{{ p.complex }}</b><span>₽</span></p>
+        <p class="package__note">Цена зависит от размера салона и степени загрязнения. Точную стоимость назовём по марке авто и фото.</p>
+      </div>
+      <div class="package__body">
+        <p class="eyebrow">Что входит</p>
+        <ul class="package__list">
+          <li>{{ i.wind }}<b>Сухая уборка</b><span>Продувка и мощный пылесос: песок, крошки, сухая грязь.</span></li>
+          <li>{{ i.seat }}<b>Ткань сидений и ковролин</b><span>Химия, щётка и экстрактор, пока вода не станет чистой.</span></li>
+          <li>{{ i.cloth }}<b>Пластик и панели</b><span>Сверху вниз, без глянцевых аэрозолей и скользкого слоя на руле.</span></li>
+          <li>{{ i.sparkle }}<b>Стёкла изнутри</b><span>Очиститель без аммиака: тонировка не тускнеет.</span></li>
+          <li>{{ i.fan }}<b>Сушка на месте</b><span>Фен и вентиляторы, двери открыты. Проверяем рукой перед сдачей.</span></li>
+          <li>{{ i.camera }}<b>Фото «до» и «после»</b><span>Фиксируем состояние салона в начале и в конце работы.</span></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section theme-paper" aria-labelledby="addons-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div class="stack">
+        <p class="eyebrow">Дополнительно</p>
+        <h2 class="h2" id="addons-title">Отдельные услуги</h2>
+      </div>
+      <p class="lead">Добавляются к комплексной химчистке или заказываются отдельно в рамках минимального заказа.</p>
+    </div>
+    <div class="addons">
+      <article class="addon">
+        <span class="addon__icon">{{ i.seat }}</span>
+        <h3 class="addon__title">Чистка кожи</h3>
+        <p class="addon__text">Отдельный очиститель для кожи, мягкая щётка, затем кондиционер. Новую химию сначала проверяем на незаметном месте.</p>
+        <p class="addon__price"><small>от</small><b>{{ p.leather }}</b><span>₽</span></p>
+      </article>
+      <article class="addon">
+        <span class="addon__icon">{{ i.ceiling }}</span>
+        <h3 class="addon__title">Потолок</h3>
+        <p class="addon__text">Только вручную, мягкой щёткой и с минимумом влаги. Если потолок перемочить, клей отходит и обшивка провисает.</p>
+        <p class="addon__price"><small>от</small><b>{{ p.ceiling }}</b><span>₽</span></p>
+      </article>
+      <article class="addon">
+        <span class="addon__icon">{{ i.sparkle }}</span>
+        <h3 class="addon__title">Нейтрализация запаха</h3>
+        <p class="addon__text">Обработка салона нейтрализатором после чистки. Без ароматизаторов, которые только перебивают запах.</p>
+        <p class="addon__price"><small>от</small><b>{{ p.odor }}</b><span>₽</span></p>
+      </article>
+      <article class="addon">
+        <span class="addon__icon">{{ i.target }}</span>
+        <h3 class="addon__title">Точечное пятно</h3>
+        <p class="addon__text">Одно пятно или одна зона: кофе на сиденье, след от обуви на ковролине. Старые пятна оцениваем честно.</p>
+        <p class="addon__price"><small>от</small><b>{{ p.spot }}</b><span>₽</span></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section theme-dark" id="calc" aria-labelledby="calc-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div class="stack">
+        <p class="eyebrow">Калькулятор</p>
+        <h2 class="h2" id="calc-title">Рассчитайте ориентир</h2>
+      </div>
+      <p class="lead">Отметьте, что нужно салону. Расчёт можно сразу отправить нам: подставим его в заявку.</p>
+    </div>
+
+    <form class="calc" data-calc data-next="{{ href_contacts }}#form" novalidate>
+      <div class="calc__options">
+        <p class="calc__group-title">Основная услуга</p>
+        <label class="opt">
+          <input type="checkbox" name="svc" value="complex" checked>
+          <span class="opt__box">{{ i.check }}</span>
+          <span class="opt__name">Комплексная химчистка салона</span>
+          <span class="opt__desc">Сухая уборка, ткань и ковролин экстрактором, пластик, стёкла изнутри, сушка</span>
+          <span class="opt__price">от {{ p.complex }} ₽</span>
+        </label>
+
+        <p class="calc__group-title">Дополнительно</p>
+        <label class="opt">
+          <input type="checkbox" name="svc" value="leather">
+          <span class="opt__box">{{ i.check }}</span>
+          <span class="opt__name">Чистка кожи</span>
+          <span class="opt__desc">Очиститель, щётка, затем кондиционер</span>
+          <span class="opt__price">от {{ p.leather }} ₽</span>
+        </label>
+        <label class="opt">
+          <input type="checkbox" name="svc" value="ceiling">
+          <span class="opt__box">{{ i.check }}</span>
+          <span class="opt__name">Потолок</span>
+          <span class="opt__desc">Только вручную, минимум влаги</span>
+          <span class="opt__price">от {{ p.ceiling }} ₽</span>
+        </label>
+        <label class="opt">
+          <input type="checkbox" name="svc" value="odor">
+          <span class="opt__box">{{ i.check }}</span>
+          <span class="opt__name">Нейтрализация запаха</span>
+          <span class="opt__desc">Обработка салона после чистки</span>
+          <span class="opt__price">от {{ p.odor }} ₽</span>
+        </label>
+        <div class="opt opt--qty">
+          <span class="opt__icon">{{ i.target }}</span>
+          <span class="opt__name" id="spots-label">Точечные пятна</span>
+          <span class="opt__desc">Одно пятно или одна зона · от {{ p.spot }} ₽ за каждое</span>
+          <span class="stepper" role="group" aria-labelledby="spots-label">
+            <button type="button" data-step="-1" aria-label="Убрать пятно">{{ i.minus }}</button>
+            <output data-spots aria-live="polite">0</output>
+            <button type="button" data-step="1" aria-label="Добавить пятно">{{ i.plus }}</button>
+          </span>
+        </div>
+
+        <p class="calc__group-title">Где машина</p>
+        <div class="calc__zones">
+          <label class="opt opt--radio">
+            <input type="radio" name="zone" value="spb" checked>
+            <span class="opt__box"></span>
+            <span class="opt__name">Санкт-Петербург</span>
+            <span class="opt__desc">Выезд входит в заказ от {{ p.min_order }} ₽</span>
+          </label>
+          <label class="opt opt--radio">
+            <input type="radio" name="zone" value="lo">
+            <span class="opt__box"></span>
+            <span class="opt__name">Ленинградская область</span>
+            <span class="opt__desc">Выезд по договорённости</span>
+          </label>
+        </div>
+      </div>
+
+      <aside class="calc__summary" aria-label="Итог расчёта">
+        <p class="calc__label">Ориентир стоимости</p>
+        <p class="calc__total" aria-live="polite"><small>от</small> <b data-calc-total>{{ p.complex }}</b> <span>₽</span></p>
+        <ul class="calc__lines" data-calc-lines>
+          <li><span>Комплексная химчистка салона</span><b>от {{ p.complex }} ₽</b></li>
+        </ul>
+        <div class="calc__notes" data-calc-notes>
+          <p>{{ i.check }}<span>Выезд по Санкт-Петербургу входит в стоимость.</span></p>
+          <p>{{ i.camera }}<span>Это ориентир. Точную цену назовём по марке авто и фото салона.</span></p>
+        </div>
+        <div class="calc__actions">
+          <button class="btn btn--primary" type="submit">Отправить расчёт{{ i.arrow_right }}</button>
+          <a class="btn btn--ghost" href="{{ wa_url }}" target="_blank" rel="noopener" data-calc-wa>{{ i.wa }}Обсудить в WhatsApp</a>
+          <a class="btn btn--ghost" href="{{ tg_url }}" target="_blank" rel="noopener" data-calc-tg>{{ i.tg }}Обсудить в Telegram</a>
+        </div>
+      </aside>
+    </form>
+  </div>
+</section>
+
+<section class="section theme-light" aria-labelledby="not-title">
+  <div class="container split">
+    <div class="split__sticky">
+      <p class="eyebrow">Чего мы не делаем</p>
+      <h2 class="h2" id="not-title">Только салон, без «всего понемногу»</h2>
+      <p class="lead">Мы сознательно не берёмся за всё подряд. Если задача не наша, скажем об этом сразу и не возьмём деньги за риск.</p>
+    </div>
+    <div class="nots">
+      <div class="not">{{ i.x_circle }}<div><b>Алькантара</b><span>Капризный материал: без большого опыта есть риск испортить.</span></div></div>
+      <div class="not">{{ i.x_circle }}<div><b>Разборка салона</b><span>Не снимаем сиденья и обшивку: чистим на месте.</span></div></div>
+      <div class="not">{{ i.x_circle }}<div><b>Мойка кузова</b><span>Во дворах и на улице она часто запрещена.</span></div></div>
+      <div class="not">{{ i.x_circle }}<div><b>Полировка</b><span>Кузовные работы не делаем.</span></div></div>
+      <div class="not">{{ i.x_circle }}<div><b>Керамика</b><span>Защитные покрытия кузова не наносим.</span></div></div>
+      <div class="not">{{ i.x_circle }}<div><b>Плёнки</b><span>Оклейку не делаем.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section theme-paper" aria-labelledby="trip-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div class="stack">
+        <p class="eyebrow">Выезд</p>
+        <h2 class="h2" id="trip-title">Сколько стоит приехать</h2>
+      </div>
+      <p class="lead">На каждый заказ привозим экстрактор, пылесос, химию и сушку, поэтому у выезда есть минимальная сумма.</p>
+    </div>
+    <div class="conds conds--3">
+      <article class="cond">
+        <div class="cond__head"><span class="cond__icon">{{ i.pin }}</span><h3 class="cond__title">Санкт-Петербург</h3></div>
+        <p class="cond__key">0 ₽</p>
+        <p class="cond__text">Выезд входит в стоимость заказа от {{ p.min_order }} ₽.</p>
+      </article>
+      <article class="cond">
+        <div class="cond__head"><span class="cond__icon">{{ i.route }}</span><h3 class="cond__title">Ленинградская область</h3></div>
+        <p class="cond__key">по договорённости</p>
+        <p class="cond__text">Назовём стоимость выезда, когда узнаем адрес.</p>
+      </article>
+      <article class="cond">
+        <div class="cond__head"><span class="cond__icon">{{ i.receipt }}</span><h3 class="cond__title">Минимальный заказ</h3></div>
+        <p class="cond__key">{{ p.min_order }} ₽</p>
+        <p class="cond__text">Если нужно только пятно или только кожа, считаем по минимальному заказу.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section theme-dark" aria-labelledby="biz-title">
+  <div class="container">
+    <div class="biz">
+      <div class="biz__copy">
+        <p class="eyebrow">Для бизнеса</p>
+        <h2 class="h2" id="biz-title">Таксопарки и автоцентры</h2>
+        <p class="lead">Берём постоянную работу по одной-двум машинам: чистим у вас на площадке по согласованному графику.</p>
+        <a class="btn btn--primary" href="{{ href_contacts }}#form">Обсудить условия{{ i.arrow_right }}</a>
+      </div>
+      <ul class="biz__list">
+        <li>{{ i.calendar }}<span>Регулярный график без простоя машин в сервисе</span></li>
+        <li>{{ i.camera }}<span>Фото «до» и «после» по каждой машине</span></li>
+        <li>{{ i.receipt }}<span>Чек по каждому заказу</span></li>
+        <li>{{ i.building }}<span>Работаем на вашей территории: нужны розетка и место под крышей</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
