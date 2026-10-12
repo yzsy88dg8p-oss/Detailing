@@ -1,7 +1,7 @@
 {
   "_readme": "Главные настройки сайта. Поменяйте значения и запустите: python3 build.py. Подробно — в README.md.",
 
-  "site_url": "https://zerokm-detailing.ru",
+  "site_url": "https://yzsy88dg8p-oss.github.io/Detailing",
   "brand": "Zero KM Detailing",
   "descriptor": "Химчистка и детейлинг салона на выезд, СПб и ЛО",
   "slogan": "0 км до сервиса. 0 км пробега салона.",

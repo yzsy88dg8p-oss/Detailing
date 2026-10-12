@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /404.html
 
-Sitemap: https://zerokm-detailing.ru/sitemap.xml
+Sitemap: https://yzsy88dg8p-oss.github.io/Detailing/sitemap.xml
