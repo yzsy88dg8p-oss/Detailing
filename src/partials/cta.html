@@ -1,0 +1,17 @@
+<section class="cta theme-deep" aria-labelledby="cta-title">
+  <div class="cta__glow" aria-hidden="true"></div>
+  <div class="container cta__inner">
+    <p class="eyebrow">{{ page.cta.eyebrow }}</p>
+    <h2 class="h2 cta__title" id="cta-title">{{ page.cta.title }}</h2>
+    <p class="lead cta__lead">{{ page.cta.text }}</p>
+    <div class="cta__actions">
+      <a class="btn btn--primary btn--lg" href="{{ page.cta.href }}"{% if page.cta.goal %} data-goal="{{ page.cta.goal }}"{% endif %}>{{ page.cta.button }}{{ i.arrow_right }}</a>
+      <div class="cta__messengers">
+        <a class="btn btn--ghost" href="{{ tg_url }}" target="_blank" rel="noopener" data-goal="click_tg">{{ i.tg }}Telegram</a>
+        <a class="btn btn--ghost" href="{{ wa_url }}" target="_blank" rel="noopener" data-goal="click_wa">{{ i.wa }}WhatsApp</a>
+        <a class="btn btn--ghost" href="{{ tel_url }}" data-goal="click_phone">{{ i.phone }}Позвонить</a>
+      </div>
+    </div>
+    <p class="cta__phone">или по телефону <a href="{{ tel_url }}" data-goal="click_phone">{{ contacts.phone_display }}</a> · {{ contacts.hours }}</p>
+  </div>
+</section>

@@ -1,0 +1,72 @@
+<!--meta {
+  "title": "Работы: фото до и после химчистки салона — Zero KM Detailing",
+  "description": "Фото до и после выездной химчистки и детейлинга салона в СПб и ЛО: один кадр, одинаковый ракурс. Тканевые, кожаные и комбинированные салоны.",
+  "nav": "works",
+  "crumb": "Работы",
+  "cta": {
+    "eyebrow": "Ваш салон",
+    "title": "Хотите такой же результат у себя?",
+    "text": "Пришлите марку авто, район и пару фото салона. Скажем, что отмоется, а что нет, и назовём цену.",
+    "button": "Записаться",
+    "href": "contacts.html#form"
+  }
+} -->
+
+<section class="page-hero theme-deep grain" aria-labelledby="page-title">
+  <div class="page-hero__ring" aria-hidden="true"></div>
+  <div class="container page-hero__grid">
+    <div class="page-hero__copy">
+      <ol class="crumbs"><li><a href="{{ href_index }}">Главная</a></li><li><span aria-current="page">Работы</span></li></ol>
+      <h1 class="h1" id="page-title">Работы: до и после</h1>
+      <p class="lead">Каждый заказ снимаем дважды: до начала работы и после сдачи. В одном кадре и с одинакового ракурса, чтобы разницу было видно честно.</p>
+      <div class="page-hero__actions">
+        <a class="btn btn--primary btn--lg" href="{{ href_contacts }}#form">Записаться{{ i.arrow_right }}</a>
+      </div>
+    </div>
+    <div class="page-hero__stat">
+      <b>до / после</b>
+      <span>фото по каждому заказу, публикуем с разрешения клиента</span>
+    </div>
+  </div>
+</section>
+
+<section class="section theme-light" aria-labelledby="gallery-title">
+  <div class="container">
+    <h2 class="sr-only" id="gallery-title">Галерея работ</h2>
+    <div class="works__bar">
+      {{ works_filters_html }}
+      <p class="works__count" data-works-count aria-live="polite"></p>
+    </div>
+    <div class="works__grid" data-works>
+      {{ works_cards_html }}
+    </div>
+    <p class="works__empty" data-works-empty>В этой категории пока нет работ. Выберите другой фильтр.</p>
+    <p class="demo-note">{{ i.info }}<span><b>Это демо-примеры формата.</b> Так будет выглядеть каждая работа в портфолио: шторка «до / после», тип салона, услуги и район. Реальные фото добавляем после заказов, с разрешения владельцев машин.</span></p>
+  </div>
+</section>
+
+<section class="section theme-dark" aria-labelledby="rules-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Как мы снимаем</p>
+      <h2 class="h2" id="rules-title">Три правила честного фото</h2>
+    </div>
+    <div class="rules">
+      <article class="rule">
+        <span class="rule__icon">{{ i.camera }}</span>
+        <h3 class="rule__title">Один кадр, один ракурс</h3>
+        <p class="rule__text">«До» и «после» снимаем с той же точки. Никаких удачных углов только для «после».</p>
+      </article>
+      <article class="rule">
+        <span class="rule__icon">{{ i.image }}</span>
+        <h3 class="rule__title">Крупно и светло</h3>
+        <p class="rule__text">Снимаем крупные светлые кадры, на которых видно ткань, швы и пластик, а не общий план салона.</p>
+      </article>
+      <article class="rule">
+        <span class="rule__icon">{{ i.lock }}</span>
+        <h3 class="rule__title">Только с разрешения</h3>
+        <p class="rule__text">Фото чужой машины публикуем, только если владелец согласен. Фото «до» остаются у нас как защита для обеих сторон.</p>
+      </article>
+    </div>
+  </div>
+</section>

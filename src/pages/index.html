@@ -1,0 +1,267 @@
+<!--meta {
+  "title": "Zero KM Detailing — химчистка салона на выезд, СПб и ЛО",
+  "description": "Выездная химчистка и детейлинг салона авто в СПб. Фото до и после, честные цены, приезжаем к вам.",
+  "og_title": "Zero KM Detailing — химчистка салона на выезд в СПб и ЛО",
+  "nav": "index",
+  "crumb": "Главная",
+  "ld_business": true,
+  "cta": {
+    "eyebrow": "Запись",
+    "title": "Напишите марку авто и район — назовём цену и время",
+    "text": "Ответим в мессенджере или перезвоним. Приложите пару фото салона, и оценка будет точнее.",
+    "button": "Записаться",
+    "href": "contacts.html#form"
+  }
+} -->
+
+<section class="hero theme-deep bg-grid grain" aria-labelledby="hero-title">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <p class="hero__badge"><i aria-hidden="true"></i><span>Выезд по Санкт-Петербургу и Ленобласти</span></p>
+      <h1 class="hero__title" id="hero-title">
+        <span class="hero__brand">Zero KM Detailing —</span>
+        <span class="hero__main">химчистка салона на выезд <em>в СПб и ЛО</em></span>
+      </h1>
+      <p class="hero__sub"><b>0 км до сервиса. 0 км пробега салона.</b> Приедем, почистим салон и сфотографируем до и после.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="{{ href_contacts }}#form">Записаться{{ i.arrow_right }}</a>
+        <a class="btn btn--ghost btn--lg" href="{{ href_services }}">Услуги и цены</a>
+      </div>
+      <ul class="hero__facts">
+        <li class="hero__fact"><b>от {{ p.complex }} ₽</b><span>комплексная химчистка</span></li>
+        <li class="hero__fact"><b>0 км</b><span>везти машину не нужно</span></li>
+        <li class="hero__fact"><b>до / после</b><span>фото по каждому заказу</span></li>
+      </ul>
+    </div>
+
+    <div class="gauge" data-gauge>
+      {{ gauge_html }}
+      <div class="gauge__readout">
+        <span class="gauge__label">Пробег салона</span>
+        {{ odo_hero_html }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <div class="marquee__group">
+      <span class="marquee__item">Ткань</span><span class="marquee__item">Ковролин</span><span class="marquee__item">Пластик</span><span class="marquee__item">Кожа</span><span class="marquee__item">Стёкла изнутри</span><span class="marquee__item">Потолок</span><span class="marquee__item">Нейтрализация запаха</span><span class="marquee__item">Точечные пятна</span>
+    </div>
+    <div class="marquee__group">
+      <span class="marquee__item">Ткань</span><span class="marquee__item">Ковролин</span><span class="marquee__item">Пластик</span><span class="marquee__item">Кожа</span><span class="marquee__item">Стёкла изнутри</span><span class="marquee__item">Потолок</span><span class="marquee__item">Нейтрализация запаха</span><span class="marquee__item">Точечные пятна</span>
+    </div>
+  </div>
+</div>
+
+<section class="section theme-light" aria-labelledby="meaning-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div class="stack">
+        <p class="eyebrow">Почему Zero KM</p>
+        <h2 class="h2" id="meaning-title">У «0 KM» два смысла, и оба про вас</h2>
+      </div>
+      <p class="lead">Мы возвращаем салону вид «как с нулевым пробегом» и делаем это у вас во дворе, в паркинге или гараже.</p>
+    </div>
+    <div class="meanings">
+      <article class="meaning">
+        <span class="meaning__tag">Результат</span>
+        <p class="meaning__zero" aria-hidden="true">0<small>км пробега</small></p>
+        <h3 class="meaning__title">Салон как с нулевым пробегом</h3>
+        <p class="meaning__text">Чисто, свежо, без следов чужой жизни: пятен, песка, запаха и липкого пластика.</p>
+      </article>
+      <article class="meaning meaning--dark">
+        <span class="meaning__tag">Формат</span>
+        <p class="meaning__zero" aria-hidden="true">0<small>км до сервиса</small></p>
+        <h3 class="meaning__title">Сервис сам приезжает к вам</h3>
+        <p class="meaning__text">Не нужно везти машину через город и ждать в очереди. Привозим оборудование, химию и сушку с собой.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section theme-dark" aria-labelledby="usp-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Чем мы отличаемся</p>
+      <h2 class="h2" id="usp-title">Три правила, которые мы не нарушаем</h2>
+    </div>
+    <div class="usp">
+      <article class="usp__item">
+        <span class="usp__icon">{{ i.route }}</span>
+        <h3 class="usp__title">Приезжаем к вам</h3>
+        <p class="usp__text">Не нужно ехать в сервис и терять полдня. Работаем в вашем паркинге, гараже или боксе по Петербургу и области.</p>
+      </article>
+      <article class="usp__item">
+        <span class="usp__icon">{{ i.camera }}</span>
+        <h3 class="usp__title">Фото «до» и «после» по каждому заказу</h3>
+        <p class="usp__text">Снимаем салон до начала работы и после неё, в одном кадре и с одинакового ракурса. Результат видно без слов.</p>
+      </article>
+      <article class="usp__item">
+        <span class="usp__icon">{{ i.eye }}</span>
+        <h3 class="usp__title">Заранее говорим, что не отмоется</h3>
+        <p class="usp__text">Старые пятна и прожжённую ткань видно на осмотре. Скажем об этом до начала работы, а не после.</p>
+      </article>
+    </div>
+    <div class="strip">
+      <p><strong>Только салон, и делаем это хорошо.</strong> Ткань, ковролин, пластик, кожа и стёкла изнутри. Кузов, полировку, керамику и плёнки не берём.</p>
+      <a class="link-arrow" href="{{ href_about }}">О нас{{ i.arrow_right }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section theme-paper" aria-labelledby="ba-title">
+  <div class="container ba-wrap">
+    <div class="ba-wrap__copy">
+      <p class="eyebrow">До и после</p>
+      <h2 class="h2" id="ba-title">Один кадр. Один ракурс.</h2>
+      <p class="lead">Каждую работу снимаем одинаково: до начала и после сдачи, с той же точки. Сдвиньте шторку, чтобы сравнить.</p>
+      <ul class="checklist">
+        <li>{{ i.check }}<span>Пятна, дыры и потёртости фиксируем до начала работы</span></li>
+        <li>{{ i.check }}<span>Фото «после» снимаем на финальном осмотре вместе с вами</span></li>
+        <li>{{ i.check }}<span>В портфолио публикуем только с вашего разрешения</span></li>
+      </ul>
+      <p class="ba-note">{{ i.info }}<span>Здесь показан демо-пример формата. Реальные работы собираем в разделе «Работы».</span></p>
+      <a class="link-arrow" href="{{ href_works }}">Смотреть работы{{ i.arrow_right }}</a>
+    </div>
+    {{ demo_ba_html }}
+  </div>
+</section>
+
+<section class="section theme-dark" aria-labelledby="stages-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div class="stack">
+        <p class="eyebrow">Как проходит заказ</p>
+        <h2 class="h2" id="stages-title">Пять этапов от осмотра до сдачи</h2>
+      </div>
+      <p class="lead">Работаем по одному регламенту на каждую машину. Спокойно и по порядку.</p>
+    </div>
+    <ol class="stages">
+      <li class="stage">
+        <span class="odo-num stage__num" aria-hidden="true"><span>0</span><span>1</span></span>
+        <h3 class="stage__title">Осмотр и фото</h3>
+        <p class="stage__text">Вместе смотрим салон, снимаем всё до начала работы.</p>
+        <svg class="icon stage__arrow" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+      </li>
+      <li class="stage">
+        <span class="odo-num stage__num" aria-hidden="true"><span>0</span><span>2</span></span>
+        <h3 class="stage__title">Сухая уборка</h3>
+        <p class="stage__text">Продувка и мощный пылесос: сначала песок и сухая грязь.</p>
+        <svg class="icon stage__arrow" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+      </li>
+      <li class="stage">
+        <span class="odo-num stage__num" aria-hidden="true"><span>0</span><span>3</span></span>
+        <h3 class="stage__title">Чистка ткани, пластика, кожи</h3>
+        <p class="stage__text">Ткань и ковролин экстрактором, кожа — очиститель и кондиционер.</p>
+        <svg class="icon stage__arrow" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+      </li>
+      <li class="stage">
+        <span class="odo-num stage__num" aria-hidden="true"><span>0</span><span>4</span></span>
+        <h3 class="stage__title">Сушка</h3>
+        <p class="stage__text">Фен и вентиляторы, двери открыты. Мокрым салон не сдаём.</p>
+        <svg class="icon stage__arrow" aria-hidden="true" focusable="false"><use href="#i-arrow-right"></use></svg>
+      </li>
+      <li class="stage">
+        <span class="odo-num stage__num" aria-hidden="true"><span>0</span><span>5</span></span>
+        <h3 class="stage__title">Осмотр с вами</h3>
+        <p class="stage__text">Принимаете работу на месте, мы делаем фото «после».</p>
+      </li>
+    </ol>
+    <div class="stages-foot">
+      <p>Подробно: 11 шагов регламента и условия выезда.</p>
+      <a class="link-arrow" href="{{ href_process }}">Как мы работаем{{ i.arrow_right }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section theme-light" aria-labelledby="prices-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div class="stack">
+        <p class="eyebrow">Услуги и цены</p>
+        <h2 class="h2" id="prices-title">Цены без сюрпризов</h2>
+      </div>
+      <p class="lead">Цены «от»: точную стоимость назовём по марке авто и фото салона, до приезда.</p>
+    </div>
+    <div class="price-list">
+      <div class="price-row price-row--main">
+        <h3 class="price-row__name">Комплексная химчистка салона</h3>
+        <p class="price-row__desc">Сухая уборка, ткань и ковролин экстрактором, пластик, стёкла изнутри</p>
+        <p class="price-row__price"><small>от</small>{{ p.complex }} ₽</p>
+      </div>
+      <div class="price-row">
+        <h3 class="price-row__name">Чистка кожи</h3>
+        <p class="price-row__desc">Очиститель, щётка, затем кондиционер</p>
+        <p class="price-row__price"><small>от</small>{{ p.leather }} ₽</p>
+      </div>
+      <div class="price-row">
+        <h3 class="price-row__name">Потолок</h3>
+        <p class="price-row__desc">Только вручную, минимум влаги</p>
+        <p class="price-row__price"><small>от</small>{{ p.ceiling }} ₽</p>
+      </div>
+      <div class="price-row">
+        <h3 class="price-row__name">Нейтрализация запаха</h3>
+        <p class="price-row__desc">Обработка салона после чистки</p>
+        <p class="price-row__price"><small>от</small>{{ p.odor }} ₽</p>
+      </div>
+      <div class="price-row">
+        <h3 class="price-row__name">Точечное пятно</h3>
+        <p class="price-row__desc">Одно пятно или одна зона</p>
+        <p class="price-row__price"><small>от</small>{{ p.spot }} ₽</p>
+      </div>
+    </div>
+    <div class="price-foot">
+      <p>{{ i.route }}<span>Выезд по СПб входит в стоимость заказа от {{ p.min_order }} ₽. В Ленинградскую область — по договорённости.</span></p>
+      <a class="btn btn--primary" href="{{ href_services }}#calc">Рассчитать стоимость{{ i.arrow_right }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section theme-dark" aria-labelledby="need-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div class="stack">
+        <p class="eyebrow">Перед визитом</p>
+        <h2 class="h2" id="need-title">Что нужно от вас</h2>
+      </div>
+      <p class="lead">Подтверждаем эти три пункта до визита. Остальное привозим с собой.</p>
+    </div>
+    <div class="conds conds--3">
+      <article class="cond">
+        <div class="cond__head"><span class="cond__icon">{{ i.garage }}</span><h3 class="cond__title">Место под крышей</h3></div>
+        <p class="cond__text">Паркинг, гараж или бокс. На улице осенью и зимой салон не высохнет, а при минусе работать нельзя.</p>
+      </article>
+      <article class="cond">
+        <div class="cond__head"><span class="cond__icon">{{ i.plug }}</span><h3 class="cond__title">Розетка 220 В</h3></div>
+        <p class="cond__text">Рядом с машиной: экстрактору нужно электричество. Удлинитель привезём.</p>
+      </article>
+      <article class="cond">
+        <div class="cond__head"><span class="cond__icon">{{ i.drop }}</span><h3 class="cond__title">8–10 литров воды</h3></div>
+        <p class="cond__text">Тёплой, для бака экстрактора. Если взять негде, привезём две канистры по 10 л.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section theme-paper" aria-labelledby="reviews-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Отзывы</p>
+      <h2 class="h2" id="reviews-title">Только настоящие отзывы</h2>
+    </div>
+    {% if has_reviews %}
+    <div class="reviews">{{ reviews_html }}</div>
+    {% else %}
+    <div class="reviews-empty">
+      <p class="reviews-empty__quote">После каждого заказа мы просим клиента об отзыве. <span>Здесь будут только они</span>, с именем и машиной.</p>
+      <ul class="reviews-empty__list">
+        <li>{{ i.check_circle }}<span>Никаких купленных и придуманных отзывов</span></li>
+        <li>{{ i.camera }}<span>Отзыв идёт вместе с фото «до» и «после» той же машины</span></li>
+        <li>{{ i.pin }}<span>Те же отзывы ищите на Яндекс Картах и в 2ГИС</span></li>
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</section>

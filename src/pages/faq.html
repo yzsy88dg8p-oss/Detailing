@@ -1,0 +1,51 @@
+<!--meta {
+  "title": "Вопросы о выездной химчистке салона — Zero KM Detailing",
+  "description": "Что нужно для выезда, сколько сохнет салон, что не отмоется, работаете ли зимой, как оплатить и получить чек. Ответы о детейлинге салона на выезд в СПб.",
+  "nav": "faq",
+  "crumb": "Вопросы",
+  "ld_faq": true,
+  "cta": {
+    "eyebrow": "Вопрос",
+    "title": "Не нашли ответ? Спросите напрямую",
+    "text": "Опишите машину и задачу. Ответим спокойно и по делу, без навязывания услуг.",
+    "button": "Задать вопрос",
+    "href": "contacts.html#form"
+  }
+} -->
+
+<section class="page-hero theme-deep grain" aria-labelledby="page-title">
+  <div class="page-hero__ring" aria-hidden="true"></div>
+  <div class="container page-hero__grid">
+    <div class="page-hero__copy">
+      <ol class="crumbs"><li><a href="{{ href_index }}">Главная</a></li><li><span aria-current="page">Вопросы</span></li></ol>
+      <h1 class="h1" id="page-title">Вопросы и ответы</h1>
+      <p class="lead">Что нужно для выезда, сколько времени занимает работа, что не отмоется и как получить чек.</p>
+      <div class="page-hero__actions">
+        <a class="btn btn--primary btn--lg" href="{{ href_contacts }}#form">Задать вопрос{{ i.arrow_right }}</a>
+      </div>
+    </div>
+    <div class="page-hero__stat">
+      <b>8<small> вопросов</small></b>
+      <span>которые нам задают чаще всего</span>
+    </div>
+  </div>
+</section>
+
+<section class="section theme-light" aria-labelledby="faq-title">
+  <div class="container faq-layout">
+    <div>
+      <h2 class="sr-only" id="faq-title">Частые вопросы</h2>
+      <div class="faq">
+        {{ faq_html }}
+      </div>
+    </div>
+    <aside class="faq-aside" aria-label="Задать свой вопрос">
+      <span class="usp__icon">{{ i.message }}</span>
+      <h2 class="faq-aside__title">Задайте свой вопрос</h2>
+      <p>Пришлите фото салона и опишите, что беспокоит: пятна, запах, шерсть. Скажем, что можно сделать.</p>
+      <a class="btn btn--primary" href="{{ href_contacts }}#form">Задать вопрос{{ i.arrow_right }}</a>
+      <a class="btn btn--ghost" href="{{ tg_url }}" target="_blank" rel="noopener" data-goal="click_tg">{{ i.tg }}Telegram</a>
+      <a class="btn btn--ghost" href="{{ wa_url }}" target="_blank" rel="noopener" data-goal="click_wa">{{ i.wa }}WhatsApp</a>
+    </aside>
+  </div>
+</section>
