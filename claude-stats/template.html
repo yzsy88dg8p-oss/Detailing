@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Stats</title>
+<style>
+  :root {
+    --bg: #f6f5f2; --card: #ffffff; --tile: #f1efea; --border: #e2ddd3;
+    --text: #1f1e1c; --muted: #6f6b63; --accent: #d97757;
+    --c0: #e6e3dc; --c1: #c6d7f5; --c2: #93b4ee; --c3: #5f8fe3; --c4: #2f63cc;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1a1918; --card: #242322; --tile: #2c2b29; --border: #4a3a33;
+      --text: #ecebe8; --muted: #a29f98;
+      --c0: #353432; --c1: #b4cbf5; --c2: #86a9ec; --c3: #5585e0; --c4: #2f5fc9;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1a1918; --card: #242322; --tile: #2c2b29; --border: #4a3a33;
+    --text: #ecebe8; --muted: #a29f98;
+    --c0: #353432; --c1: #b4cbf5; --c2: #86a9ec; --c3: #5585e0; --c4: #2f5fc9;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 15px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 32px 16px; }
+  h1 { font-size: 30px; font-weight: 500; margin: 0 0 20px; display: flex; gap: 12px; align-items: center; }
+  h1 .star { color: var(--accent); font-size: 34px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; }
+  .bar { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .seg { display: flex; gap: 4px; }
+  .seg button { background: none; border: 0; color: var(--muted); font: inherit; font-size: 16px;
+                padding: 6px 14px; border-radius: 8px; cursor: pointer; }
+  .seg button.on { background: var(--tile); color: var(--text); font-weight: 600; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  @media (max-width: 560px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  .kpi { background: var(--tile); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; }
+  .kpi .l { color: var(--muted); font-size: 14px; }
+  .kpi .v { font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .heat { margin-top: 18px; overflow-x: auto; padding-bottom: 4px; }
+  .heat-inner { display: flex; gap: 6px; }
+  .days { position: sticky; left: 0; z-index: 1; background: var(--card); padding-right: 4px; display: grid; grid-template-rows: 14px repeat(7, 16px); gap: 4px; font-size: 11px; color: var(--muted); }
+  .weeks { display: grid; grid-auto-flow: column; grid-template-rows: 14px repeat(7, 16px); gap: 4px; }
+  .cell { width: 16px; height: 16px; border-radius: 4px; background: var(--c0); }
+  .cell.out { visibility: hidden; }
+  .mon { font-size: 11px; color: var(--muted); white-space: nowrap; width: 16px; overflow: visible; }
+  .legend { display: flex; gap: 4px; align-items: center; justify-content: flex-end; font-size: 12px; color: var(--muted); margin-top: 8px; }
+  .legend .cell { width: 12px; height: 12px; }
+  .foot { margin-top: 14px; color: var(--muted); }
+  #tip { position: fixed; pointer-events: none; background: var(--text); color: var(--bg);
+         font-size: 12px; padding: 4px 8px; border-radius: 6px; display: none; z-index: 10; }
+  table { width: 100%; border-collapse: collapse; }
+  td { padding: 8px 4px; border-bottom: 1px solid var(--border); font-variant-numeric: tabular-nums; }
+  td.r { text-align: right; }
+  .mbar { height: 6px; border-radius: 3px; background: var(--c3); margin-top: 4px; }
+  .empty { color: var(--muted); padding: 24px 0; text-align: center; }
+</style>
+</head>
+<body>
+<main>
+  <h1><span class="star">✳</span> <span id="title"></span></h1>
+  <div class="card">
+    <div class="bar">
+      <div class="seg" id="tabs">
+        <button data-v="overview" class="on">Обзор</button>
+        <button data-v="models">Модели</button>
+      </div>
+      <div class="seg" id="range">
+        <button data-v="all" class="on">Всё</button>
+        <button data-v="30">30 дн</button>
+        <button data-v="7">7 дн</button>
+      </div>
+    </div>
+    <div id="view"></div>
+  </div>
+</main>
+<div id="tip"></div>
+<script>
+const DATA = __DATA__;
+const NAME = __NAME__;
+const GATSBY = 72000; // примерно столько токенов в «Великом Гэтсби»
+const MONTHS = ['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'];
+
+document.getElementById('title').textContent = `Что дальше, ${NAME}?`;
+let tab = 'overview', range = 'all';
+
+const pad = n => String(n).padStart(2, '0');
+const key = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const fmt = n => n >= 1e9 ? (n / 1e9).toFixed(1) + 'B' : n >= 1e6 ? (n / 1e6).toFixed(1) + 'M'
+              : n >= 1e3 ? (n / 1e3).toFixed(1) + 'K' : String(n);
+const modelName = m => m.replace(/^claude-/, '').replace(/-\d{8}$/, '')
+  .replace(/^([a-z]+)-(\d+)-(\d+)$/, (_, f, a, b) => `${f[0].toUpperCase() + f.slice(1)} ${a}.${b}`)
+  .replace(/^([a-z]+)-(\d+)$/, (_, f, a) => `${f[0].toUpperCase() + f.slice(1)} ${a}`);
+
+function selected() {
+  const keys = Object.keys(DATA).sort();
+  if (range === 'all') return keys;
+  const from = new Date(); from.setHours(0, 0, 0, 0); from.setDate(from.getDate() - (+range - 1));
+  return keys.filter(k => k >= key(from));
+}
+
+function totals(keys) {
+  const t = { tokens: 0, messages: 0, sessions: new Set(), hours: {}, models: {} };
+  for (const k of keys) {
+    const d = DATA[k];
+    t.tokens += d.tokens; t.messages += d.messages;
+    d.sessions.forEach(s => t.sessions.add(s));
+    for (const [h, n] of Object.entries(d.hours)) t.hours[h] = (t.hours[h] || 0) + n;
+    for (const [m, n] of Object.entries(d.models)) t.models[m] = (t.models[m] || 0) + n;
+  }
+  return t;
+}
+
+const topEntry = obj => Object.entries(obj).sort((a, b) => b[1] - a[1])[0];
+
+function heatmap(keys) {
+  const set = new Set(keys);
+  const end = new Date(); end.setHours(0, 0, 0, 0);
+  const span = range === 'all' ? 52 : range === '30' ? 5 : 1;
+  const start = new Date(end); start.setDate(end.getDate() - span * 7 - ((end.getDay() + 6) % 7));
+  const max = Math.max(1, ...keys.map(k => DATA[k].tokens));
+  const level = v => v <= 0 ? 0 : Math.min(4, 1 + Math.floor(Math.sqrt(v / max) * 3.999));
+
+  let html = '<div class="heat-inner"><div class="days"><span></span>' +
+    ['пн','','ср','','пт','',''].map(s => `<span>${s}</span>`).join('') + '</div><div class="weeks">';
+  let lastMonth = -1;
+  for (let w = new Date(start); w <= end; w.setDate(w.getDate() + 7)) {
+    const m = w.getMonth();
+    html += `<span class="mon">${m !== lastMonth ? MONTHS[m] : ''}</span>`;
+    lastMonth = m;
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(w); d.setDate(w.getDate() + i);
+      const k = key(d), v = set.has(k) ? DATA[k].tokens : 0;
+      const out = d > end ? ' out' : '';
+      const tip = `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}: ${v ? fmt(v) + ' токенов, ' + DATA[k].messages + ' сообщ.' : 'нет активности'}`;
+      html += `<div class="cell${out}" data-tip="${tip}" style="background:var(--c${level(v)})"></div>`;
+    }
+  }
+  html += '</div></div>';
+  return html;
+}
+
+function legend() {
+  return '<div class="legend">меньше' + [0,1,2,3,4].map(i => `<div class="cell" style="background:var(--c${i})"></div>`).join('') + 'больше</div>';
+}
+
+function render() {
+  const keys = selected(), t = totals(keys), view = document.getElementById('view');
+  if (!keys.length) { view.innerHTML = '<div class="empty">За этот период активности нет.</div>'; return; }
+  if (tab === 'overview') {
+    const peak = topEntry(t.hours), fav = topEntry(t.models);
+    const h = peak ? +peak[0] : 0;
+    const kpis = [
+      ['Пиковый час', peak ? `${pad(h)}:00` : '—'],
+      ['Любимая модель', fav ? modelName(fav[0]) : '—'],
+      ['Активных дней', keys.length],
+      ['Всего токенов', fmt(t.tokens)],
+      ['Сессий', t.sessions.size.toLocaleString('ru')],
+      ['Сообщений', t.messages.toLocaleString('ru')],
+    ];
+    view.innerHTML = '<div class="grid">' +
+      kpis.map(([l, v]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div></div>`).join('') +
+      '</div><div class="heat" id="heat">' + heatmap(keys) + '</div>' + legend() +
+      `<div class="foot">Вы использовали примерно в ${Math.max(1, Math.round(t.tokens / GATSBY)).toLocaleString('ru')}× больше токенов, чем в «Великом Гэтсби».</div>`;
+    const heat = document.getElementById('heat'); heat.scrollLeft = heat.scrollWidth;
+  } else {
+    const rows = Object.entries(t.models).sort((a, b) => b[1] - a[1]);
+    const sum = rows.reduce((s, r) => s + r[1], 0) || 1;
+    view.innerHTML = '<table>' + rows.map(([m, n]) =>
+      `<tr><td>${modelName(m)}<div class="mbar" style="width:${(n / sum * 100).toFixed(1)}%"></div></td>` +
+      `<td class="r">${fmt(n)}</td><td class="r">${(n / sum * 100).toFixed(0)}%</td></tr>`).join('') + '</table>';
+  }
+}
+
+for (const id of ['tabs', 'range']) {
+  document.getElementById(id).addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    document.querySelectorAll(`#${id} button`).forEach(x => x.classList.toggle('on', x === b));
+    if (id === 'tabs') tab = b.dataset.v; else range = b.dataset.v;
+    render();
+  });
+}
+const tip = document.getElementById('tip');
+document.addEventListener('mousemove', e => {
+  const c = e.target.closest('[data-tip]');
+  if (!c) { tip.style.display = 'none'; return; }
+  tip.textContent = c.dataset.tip; tip.style.display = 'block';
+  tip.style.left = Math.min(e.clientX + 12, innerWidth - tip.offsetWidth - 8) + 'px';
+  tip.style.top = (e.clientY + 14) + 'px';
+});
+render();
+</script>
+</body>
+</html>
