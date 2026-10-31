@@ -1,0 +1,35 @@
+[
+  {
+    "demo": true,
+    "title": "Сиденье водителя, ткань",
+    "salon": "fabric",
+    "brand": "",
+    "car": "",
+    "district": "",
+    "services": "Комплексная химчистка",
+    "before": "assets/img/works/demo-seat-fabric-before.webp",
+    "after": "assets/img/works/demo-seat-fabric-after.webp"
+  },
+  {
+    "demo": true,
+    "title": "Ковролин водителя: песок и соль",
+    "salon": "fabric",
+    "brand": "",
+    "car": "",
+    "district": "",
+    "services": "Комплексная химчистка",
+    "before": "assets/img/works/demo-carpet-before.webp",
+    "after": "assets/img/works/demo-carpet-after.webp"
+  },
+  {
+    "demo": true,
+    "title": "Сиденье, светлая кожа",
+    "salon": "leather",
+    "brand": "",
+    "car": "",
+    "district": "",
+    "services": "Чистка кожи и кондиционер",
+    "before": "assets/img/works/demo-seat-leather-before.webp",
+    "after": "assets/img/works/demo-seat-leather-after.webp"
+  }
+]

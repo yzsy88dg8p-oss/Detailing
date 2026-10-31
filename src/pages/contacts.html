@@ -1,0 +1,189 @@
+<!--meta {
+  "title": "Контакты и запись на химчистку салона на выезд — Zero KM Detailing",
+  "description": "Запись на выездную химчистку и детейлинг салона в СПб и ЛО: форма заявки, Telegram, WhatsApp, телефон. Напишите марку авто и район — назовём цену и время.",
+  "nav": "contacts",
+  "crumb": "Контакты и запись",
+  "ld_business": true
+} -->
+
+<section class="page-hero theme-deep grain" aria-labelledby="page-title">
+  <div class="page-hero__ring" aria-hidden="true"></div>
+  <div class="container page-hero__grid">
+    <div class="page-hero__copy">
+      <ol class="crumbs"><li><a href="{{ href_index }}">Главная</a></li><li><span aria-current="page">Контакты и запись</span></li></ol>
+      <h1 class="h1" id="page-title">Контакты и запись</h1>
+      <p class="lead">Напишите марку авто и район — назовём цену и время. Удобнее всего в мессенджере: туда же можно прислать фото салона.</p>
+      <div class="page-hero__actions">
+        <a class="btn btn--primary btn--lg" href="#form">Отправить заявку{{ i.arrow_right }}</a>
+        <a class="btn btn--ghost btn--lg" href="{{ tg_url }}" target="_blank" rel="noopener" data-goal="click_tg">{{ i.tg }}Telegram</a>
+      </div>
+    </div>
+    <div class="page-hero__stat">
+      <b>СПб и ЛО</b>
+      <span>{{ contacts.hours }}, {{ contacts.hours_note }}</span>
+    </div>
+  </div>
+</section>
+
+<section class="section theme-light" aria-labelledby="form-title">
+  <div class="container contact-layout">
+    <div class="form-card">
+      <form class="form" id="form" data-form novalidate>
+        <div class="form__head">
+          <p class="eyebrow">Заявка</p>
+          <h2 class="form__title" id="form-title">Запись на химчистку салона</h2>
+          <p class="muted">Поля со звёздочкой обязательны. Ответим в мессенджере или перезвоним.</p>
+          <p class="ba-note" data-prefill-note hidden>{{ i.check }}<span>Мы подставили ваш расчёт из калькулятора в комментарий и отметили услуги.</span></p>
+        </div>
+
+        <div class="form__grid">
+          <div class="field">
+            <label class="field__label" for="f-name">Имя <i>*</i></label>
+            <input class="input" id="f-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required aria-describedby="e-name">
+            <p class="field__error" id="e-name">Укажите имя</p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="f-contact">Телефон или Telegram <i>*</i></label>
+            <input class="input" id="f-contact" name="contact" type="text" inputmode="text" autocomplete="tel" placeholder="+7 (900) 000-00-00 или @username" required aria-describedby="e-contact">
+            <p class="field__error" id="e-contact">Укажите телефон (10–11 цифр) или ник в Telegram</p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="f-car">Марка и модель <i>*</i></label>
+            <input class="input" id="f-car" name="car" type="text" autocomplete="off" placeholder="Например, Kia Rio, 2017" required aria-describedby="e-car">
+            <p class="field__error" id="e-car">Укажите марку и модель авто</p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="f-district">Район <i>*</i></label>
+            <input class="input" id="f-district" name="district" type="text" autocomplete="off" placeholder="Например, Приморский или Мурино" required aria-describedby="e-district">
+            <p class="field__error" id="e-district">Укажите район или населённый пункт</p>
+          </div>
+
+          <fieldset class="field field--full fieldset">
+            <legend class="field__label">Что нужно <small>— можно несколько</small></legend>
+            <div class="checks">
+              <label class="check-chip"><input type="checkbox" name="services" value="complex" data-label="Комплексная химчистка"><span>Комплексная химчистка</span></label>
+              <label class="check-chip"><input type="checkbox" name="services" value="leather" data-label="Чистка кожи"><span>Чистка кожи</span></label>
+              <label class="check-chip"><input type="checkbox" name="services" value="ceiling" data-label="Потолок"><span>Потолок</span></label>
+              <label class="check-chip"><input type="checkbox" name="services" value="odor" data-label="Нейтрализация запаха"><span>Нейтрализация запаха</span></label>
+              <label class="check-chip"><input type="checkbox" name="services" value="spot" data-label="Точечные пятна"><span>Точечные пятна</span></label>
+              <label class="check-chip"><input type="checkbox" name="services" value="help" data-label="Не знаю, подскажите"><span>Не знаю, подскажите</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field field--full">
+            <label class="field__label" for="f-when">Удобное время <small>— необязательно</small></label>
+            <input class="input" id="f-when" name="when" type="text" autocomplete="off" placeholder="Например, в субботу после 12:00">
+          </div>
+
+          <div class="field field--full">
+            <span class="field__label" id="l-photos">Фото салона <small>— необязательно, но так оценка точнее</small></span>
+            <label class="upload" aria-labelledby="l-photos">
+              <input type="file" name="photos" accept="image/*" multiple>
+              {{ i.upload }}
+              <b>Добавить фото</b>
+              <span data-file-hint>До 6 фото, до 10 МБ каждое.</span>
+            </label>
+            <div class="thumbs" data-thumbs></div>
+          </div>
+
+          <div class="field field--full">
+            <label class="field__label" for="f-comment">Комментарий <small>— необязательно</small></label>
+            <textarea class="input" id="f-comment" name="comment" rows="3" placeholder="Что беспокоит: пятна, запах, шерсть, детское кресло"></textarea>
+          </div>
+
+          <div class="field field--full">
+            <label class="consent">
+              <input type="checkbox" name="consent" value="yes" required aria-describedby="e-consent">
+              <span>Даю <a href="privacy.html#consent">согласие на обработку персональных данных</a> и принимаю <a href="privacy.html">политику конфиденциальности</a>. <i class="req">*</i></span>
+            </label>
+            <p class="field__error" id="e-consent">Без согласия мы не можем принять заявку</p>
+          </div>
+        </div>
+
+        <div class="hp" aria-hidden="true">
+          <label for="f-website">Не заполняйте это поле</label>
+          <input id="f-website" type="text" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <p class="form__alert" data-form-alert role="alert"></p>
+
+        <div class="form__submit">
+          <button class="btn btn--primary btn--lg" type="submit">Отправить заявку{{ i.arrow_right }}</button>
+          <p class="form__secure">{{ i.lock }}Данные нужны только для связи с вами</p>
+        </div>
+      </form>
+
+      <div class="form-done" data-form-done hidden>
+        <span class="form-done__icon">{{ i.check }}</span>
+        <div data-done="sent" hidden>
+          <h2 class="form-done__title">Заявка отправлена</h2>
+          <p>Спасибо! Свяжемся с вами, уточним детали и назовём цену и время. Если есть фото салона, пришлите их в мессенджер.</p>
+        </div>
+        <div data-done="manual" hidden>
+          <h2 class="form-done__title">Заявка готова</h2>
+          <p>Отправьте её нам в мессенджер одним нажатием: текст уже собран. Фото салона приложите прямо в чате.</p>
+        </div>
+        <pre class="form-done__text" data-done-text></pre>
+        <div class="form-done__actions">
+          <a class="btn btn--primary" href="{{ wa_url }}" target="_blank" rel="noopener" data-done-wa data-goal="click_wa">{{ i.wa }}Отправить в WhatsApp</a>
+          <a class="btn btn--ghost" href="{{ tg_url }}" target="_blank" rel="noopener" data-done-tg data-goal="click_tg">{{ i.tg }}Отправить в Telegram</a>
+          <button class="btn btn--ghost" type="button" data-copy-request>{{ i.copy }}Скопировать</button>
+        </div>
+        <button class="link-arrow link-arrow--btn" type="button" data-form-again>Заполнить заново{{ i.arrow_right }}</button>
+      </div>
+    </div>
+
+    <aside class="contact-side" aria-label="Контакты">
+      <a class="channel channel--accent" href="{{ tg_url }}" target="_blank" rel="noopener" data-goal="click_tg">
+        <span class="channel__icon">{{ i.tg }}</span>
+        <span class="channel__name">Telegram</span>
+        <span class="channel__value">{{ tg_handle }}</span>
+        <span class="channel__go">{{ i.arrow_up_right }}</span>
+      </a>
+      <a class="channel" href="{{ wa_url }}" target="_blank" rel="noopener" data-goal="click_wa">
+        <span class="channel__icon">{{ i.wa }}</span>
+        <span class="channel__name">WhatsApp</span>
+        <span class="channel__value">{{ contacts.phone_display }}</span>
+        <span class="channel__go">{{ i.arrow_up_right }}</span>
+      </a>
+      <a class="channel" href="{{ tel_url }}" data-goal="click_phone">
+        <span class="channel__icon">{{ i.phone }}</span>
+        <span class="channel__name">Телефон</span>
+        <span class="channel__value">{{ contacts.phone_display }}</span>
+        <span class="channel__go">{{ i.arrow_up_right }}</span>
+      </a>
+
+      <div class="infobox">
+        <p class="infobox__title">Часы работы</p>
+        <div class="hours">{{ i.clock }}<div><b>{{ contacts.hours }}</b><span>{{ contacts.hours_note }}</span></div></div>
+      </div>
+
+      <div class="infobox">
+        <p class="infobox__title">Зона выезда</p>
+        <div class="zone">
+          <svg class="zone__radar" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <circle cx="60" cy="60" r="56" class="zr-lo"/>
+            <circle cx="60" cy="60" r="34" class="zr-spb"/>
+            <circle cx="60" cy="60" r="17" class="zr-ring"/>
+            <path d="M60 60 L60 4" class="zr-sweep"/>
+            <circle cx="60" cy="60" r="4" class="zr-dot"/>
+          </svg>
+          <ul class="zone__list">
+            <li class="z-spb"><b>Санкт-Петербург</b><span>Выезд входит в заказ от {{ p.min_order }} ₽</span></li>
+            <li class="z-lo"><b>Ленинградская область</b><span>По договорённости</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="infobox">
+        <p class="infobox__title">Что будет после заявки</p>
+        <ol class="next-steps">
+          <li><span><b>Свяжемся с вами</b> и попросим пару фото салона.</span></li>
+          <li><span><b>Назовём цену и время</b> и честно скажем, что может не отмыться.</span></li>
+          <li><span><b>Подтвердим условия:</b> место под крышей, розетку 220 В и воду.</span></li>
+          <li><span><b>Приедем</b> в согласованное время со всем оборудованием.</span></li>
+        </ol>
+      </div>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,9 @@
+{
+  "name": "zerokm-detailing-bot",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node test/simulate.mjs",
+    "deploy": "wrangler deploy"
+  }
+}

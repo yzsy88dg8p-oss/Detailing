@@ -1,0 +1,18 @@
+# Настройки для запуска через командную строку (wrangler deploy).
+# Если ставите бота через сайт Cloudflare, этот файл не нужен.
+name = "zerokm-bot"
+main = "worker.js"
+compatibility_date = "2025-06-01"
+
+[vars]
+ADMIN_CHAT_ID = ""          # ID вашего чата для заявок, узнать: написать боту /id
+SITE_URL = "https://zerokm-detailing.ru"
+ALLOWED_ORIGIN = "*"        # после запуска сайта впишите его адрес, например https://zerokm-detailing.ru
+
+[[kv_namespaces]]
+binding = "STATE"
+id = "ВСТАВЬТЕ_ID_ХРАНИЛИЩА"  # wrangler kv namespace create STATE
+
+# Секреты задаются командами, не в этом файле:
+#   wrangler secret put BOT_TOKEN
+#   wrangler secret put WEBHOOK_SECRET

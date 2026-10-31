@@ -1,0 +1,59 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a class="logo logo--footer" href="{{ href_index }}" aria-label="{{ brand }}: на главную">
+          {{ logo_footer_html }}
+          <span class="logo__text">
+            <span class="logo__name">Zero KM <span>Detailing</span></span>
+            <span class="logo__desc">{{ descriptor }}</span>
+          </span>
+        </a>
+        <p class="footer__slogan">{{ slogan }}</p>
+        <a class="btn btn--primary" href="{{ href_contacts }}#form">Записаться{{ i.arrow_right }}</a>
+      </div>
+
+      <nav class="footer__col" aria-label="Разделы сайта">
+        <h2 class="footer__title">Разделы</h2>
+        <ul class="footer__links">
+          <li><a href="{{ href_index }}">Главная</a></li>
+          <li><a href="{{ href_services }}">Услуги и цены</a></li>
+          <li><a href="{{ href_process }}">Как мы работаем</a></li>
+          <li><a href="{{ href_works }}">Работы</a></li>
+          <li><a href="{{ href_about }}">О нас</a></li>
+          <li><a href="{{ href_faq }}">Вопросы</a></li>
+          <li><a href="{{ href_contacts }}">Контакты и запись</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__col">
+        <h2 class="footer__title">Связаться</h2>
+        <ul class="footer__contacts">
+          <li><a href="{{ tel_url }}" data-goal="click_phone">{{ i.phone }}<span>{{ contacts.phone_display }}</span></a></li>
+          <li><a href="{{ tg_url }}" target="_blank" rel="noopener" data-goal="click_tg">{{ i.tg }}<span>Telegram {{ tg_handle }}</span></a></li>
+          <li><a href="{{ wa_url }}" target="_blank" rel="noopener" data-goal="click_wa">{{ i.wa }}<span>WhatsApp</span></a></li>
+          <li class="footer__hours">{{ i.clock }}<span>{{ contacts.hours }}<br><small>{{ contacts.hours_note }}</small></span></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h2 class="footer__title">Зона выезда</h2>
+        <ul class="footer__zone">
+          <li><strong>Санкт-Петербург</strong><span>выезд входит в заказ от {{ p.min_order }} ₽</span></li>
+          <li><strong>Ленинградская область</strong><span>по договорённости</span></li>
+        </ul>
+        <p class="footer__note">Работаем только с салоном: ткань, ковролин, пластик, кожа, стёкла изнутри.</p>
+      </div>
+    </div>
+
+    <div class="footer__odo" aria-hidden="true">
+      <span>0</span><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span><em>km</em>
+    </div>
+
+    <div class="footer__bottom">
+      <p>© {{ years }} {{ brand }}{% if legal.operator_name %} · {{ legal.operator_name }}, {{ legal.status }}{% if legal.inn %}, ИНН {{ legal.inn }}{% endif %}{% endif %}</p>
+      <p><a href="privacy.html">Политика конфиденциальности</a></p>
+      <p class="footer__muted">Цены на сайте не являются публичной офертой. Точную стоимость называем после фото салона.</p>
+    </div>
+  </div>
+</footer>
